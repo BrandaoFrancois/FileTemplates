@@ -25,8 +25,7 @@ generateHeader() {
     echo "  $className();" >> $classHeaderFile;
     echo "  ~$className();" >> $classHeaderFile;
     echo "" >> $classHeaderFile;
-    echo "  $className &operator = (const $className &);" >> $classHeaderFile;
-    echo "  bool operator == (const $className &) const;" >> $classHeaderFile;
+    echo "  friend bool operator == (const $className &, const $className &);" >> $classHeaderFile;
     echo "  friend std::ostream &operator << (std::ostream &os, const $className &);"  >> $classHeaderFile;
     echo "private:" >> $classHeaderFile;
     echo "" >> $classHeaderFile;
@@ -48,11 +47,7 @@ generateContent() {
     echo "$className::~$className() {" >> $classContentFile;
     echo "}" >> $classContentFile;
     echo "" >> $classContentFile;
-    echo "$className &operator = (const $className &) {" >> $classContentFile;
-    echo "  return *this;" >> $classContentFile;
-    echo "}" >> $classContentFile;
-    echo "" >> $classContentFile;
-    echo "bool operator == (const $className &) const {" >> $classContentFile;
+    echo "bool operator == (const $className &, const $className &) {" >> $classContentFile;
     echo "  return false;" >> $classContentFile;
     echo "}" >> $classContentFile;
     echo "" >> $classContentFile;
