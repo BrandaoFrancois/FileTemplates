@@ -12,7 +12,7 @@ Const SCREEN_WIDTH = 800
 Const SCREEN_HEIGHT = 600
 
 Graphics SCREEN_WIDTH, SCREEN_HEIGHT
-AppTitle "TITLE"
+AppTitle TITLE
 
 SetBuffer BackBuffer()
 
